@@ -6,7 +6,11 @@ WORKDIR /oltpbench
 
 RUN ant
 WORKDIR /
-RUN git clone https://github.com/rijalati/dotfiles.git
-RUN cp /dotfiles/mkshrc /root/.mkshrc
+RUN git clone https://github.com/rijalati/dotfiles.git \
+    && cp /dotfiles/mkshrc /root/.mkshrc
 WORKDIR /oltpbench
-ENTRYPOINT ["/usr/bin/mksh", "-li"]
+RUN mkdir /oltpbench/templates
+ENV TMPLDIR=/oltpbench/templates
+COPY templates/*.xml templates/
+ENTRYPOINT ["/oltpbench/oltpbenchmark"]
+CMD ["--help"]
