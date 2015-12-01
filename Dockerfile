@@ -12,6 +12,7 @@ WORKDIR /oltpbench
 RUN mkdir /oltpbench/templates
 COPY templates/ templates/
 RUN sed 's|#!/bin/bash|#!/bin/sh|' oltpbenchmark > mod.oltpbenchmark \
-    && mv mod.oltpbenchmark oltpbenchmark
+    && mv mod.oltpbenchmark oltpbenchmark \
+    && chmod +x oltpbenchmark
 ENTRYPOINT ["/bin/sh","-c","exec","/oltpbench/oltpbenchmark"]
 CMD ["--help"]
