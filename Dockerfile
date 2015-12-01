@@ -10,6 +10,6 @@ RUN git clone https://github.com/rijalati/dotfiles.git \
     && cp /dotfiles/mkshrc /root/.mkshrc
 WORKDIR /oltpbench
 RUN mkdir /oltpbench/templates
-COPY templates/*.xml templates/
+COPY templates/ templates/
 ENTRYPOINT ["/oltpbench/oltpbenchmark"]
 CMD ["--help"]
