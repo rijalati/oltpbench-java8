@@ -14,5 +14,5 @@ COPY templates/ templates/
 RUN sed 's|#!/bin/bash|#!/bin/sh|' oltpbenchmark > mod.oltpbenchmark \
     && mv mod.oltpbenchmark oltpbenchmark \
     && chmod +x oltpbenchmark
-ENTRYPOINT ["/bin/sh","-c","exec","/oltpbench/oltpbenchmark"]
+ENTRYPOINT ["/oltpbench/oltpbenchmark"]
 CMD ["--help"]
