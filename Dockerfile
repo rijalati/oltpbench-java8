@@ -11,5 +11,5 @@ RUN git clone https://github.com/rijalati/dotfiles.git \
 WORKDIR /oltpbench
 RUN mkdir /oltpbench/templates
 COPY templates/ templates/
-ENTRYPOINT ["/oltpbench/oltpbenchmark"]
+ENTRYPOINT ["/bin/sh","-c","/oltpbench/oltpbenchmark"]
 CMD ["--help"]
