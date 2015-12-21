@@ -1,7 +1,7 @@
 FROM rijalati/alpine-java8
 MAINTAINER rijalati@gmail.com
 
-RUN git clone https://github.com/oltpbenchmark/oltpbench.git
+RUN git clone https://github.com/rijalati/oltpbench.git
 WORKDIR /oltpbench
 
 RUN ant
